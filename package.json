@@ -34,6 +34,15 @@
           "type": "string",
           "default": "",
           "description": "Which runtime in java.configurations.runtime should be used. If empty, use whichever has {default: true}."
+        },
+        "ktfmt.options": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "option"
+          },
+          "default": [],
+          "description": "Additional options to pass to ktfmt"
         }
       }
     }
