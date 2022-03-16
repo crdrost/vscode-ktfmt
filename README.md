@@ -40,6 +40,18 @@ If you do not want to use the `default` one to run `ktfmt` for whatever reason,
 copy the `name` property into `ktfmt.java-runtime` and this extension will use
 that `path` instead.
 
+## Configuration
+
+You can pass additional options array to kfmt by setting `ktfmt.options`.
+
+For example, to use Official kotlin style:
+
+```json
+{
+  "ktfmt.options": ["--kotlinlang-style"]
+}
+```
+
 ## Known Issues
 
 Nothing right now.

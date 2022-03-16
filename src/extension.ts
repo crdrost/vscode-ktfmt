@@ -48,6 +48,7 @@ class KtfmtProvider implements vscode.DocumentRangeFormattingEditProvider {
       );
       return Promise.resolve(null);
     }
+    const options = config.get<string[]>('options') ?? [];
     const pathToJar = config.get<string>('path-to-jar');
     const javaRuntimeName = config.get<string>('java-runtime');
     let runtime: undefined | JavaRuntime;
@@ -87,7 +88,7 @@ class KtfmtProvider implements vscode.DocumentRangeFormattingEditProvider {
       try {
         child = cp.spawn(
           path.resolve(javaHome, 'bin', 'java'),
-          ['-jar', pathToJar, '-'],
+          ['-jar', pathToJar, ...options, '-'],
           {
             env: subEnv,
           }
