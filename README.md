@@ -11,6 +11,7 @@ set it as your default formatter for kotlin files by adding to your
 ```json
 {
   "ktfmt.path-to-jar": "/Users/crdrost/.local/lib/ktfmt-0.25-jar-with-dependencies.jar",
+  "ktfmt.code-style": "kotlinlang-style",
   "[kotlin]": {
     "editor.defaultFormatter": "crdrost.ktfmt"
   }
@@ -45,6 +46,10 @@ that `path` instead.
 Nothing right now.
 
 ## Release Notes
+
+### 1.0.2
+
+Code style can now be choosen (Compatible with ktfmt 0.21 and higher).
 
 ### 1.0.1
 

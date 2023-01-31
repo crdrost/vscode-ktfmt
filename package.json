@@ -34,6 +34,12 @@
           "type": "string",
           "default": "",
           "description": "Which runtime in java.configurations.runtime should be used. If empty, use whichever has {default: true}."
+        },
+        "ktfmt.code-style": {
+          "type": "string",
+          "default": "kotlinlang-style",
+          "enum": ["kotlinlang-style", "dropbox-style", "google-style"],
+          "description": "Which code style should be used. Options: [dropbox-style | google-style | kotlinlang-style]"
         }
       }
     }

@@ -49,6 +49,7 @@ class KtfmtProvider implements vscode.DocumentRangeFormattingEditProvider {
       return Promise.resolve(null);
     }
     const pathToJar = config.get<string>('path-to-jar');
+    const choosenCodeStyle = config.get<string>('code-style');
     const javaRuntimeName = config.get<string>('java-runtime');
     let runtime: undefined | JavaRuntime;
     if (!javaRuntimeName) {
@@ -76,6 +77,11 @@ class KtfmtProvider implements vscode.DocumentRangeFormattingEditProvider {
       );
       return Promise.resolve(null);
     }
+    let codeStyle = '--kotlinlang-style';
+    if (choosenCodeStyle) {
+      codeStyle = `--${choosenCodeStyle}`;
+    }
+
     const javaHome = runtime.path;
 
     outputChannel.appendLine(`Formatting ${document.fileName}`);
@@ -87,7 +93,7 @@ class KtfmtProvider implements vscode.DocumentRangeFormattingEditProvider {
       try {
         child = cp.spawn(
           path.resolve(javaHome, 'bin', 'java'),
-          ['-jar', pathToJar, '-'],
+          ['-jar', pathToJar, codeStyle, '-'],
           {
             env: subEnv,
           }
